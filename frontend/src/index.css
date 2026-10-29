@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-glass-border;
+  }
+  
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply bg-matte-black text-text-primary antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-matte-black;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-matte-black-lighter rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-emerald-dark;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-glass-white backdrop-blur-glass border border-glass-border rounded-glass shadow-glass transition-all duration-normal;
+  }
+  
+  .glass-card-hover {
+    @apply glass-card hover:bg-glass-white-strong hover:shadow-glass-hover hover:border-emerald/30;
+  }
+  
+  .glass-button {
+    @apply px-6 py-3 rounded-glass-sm font-medium transition-all duration-fast
+           bg-glass-white-strong border border-glass-border text-text-primary
+           hover:bg-emerald/10 hover:border-emerald/50 hover:shadow-emerald-glow
+           focus:outline-none focus:ring-2 focus:ring-emerald/50
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  
+  .glass-button-primary {
+    @apply px-6 py-3 rounded-glass-sm font-medium transition-all duration-fast
+           bg-emerald text-matte-black
+           hover:bg-emerald-light hover:shadow-emerald-glow-strong
+           focus:outline-none focus:ring-2 focus:ring-emerald/50
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  
+  .glass-input {
+    @apply w-full px-4 py-3 rounded-glass-sm bg-glass-white border border-glass-border
+           text-text-primary placeholder-text-muted
+           focus:outline-none focus:border-emerald/50 focus:ring-2 focus:ring-emerald/20
+           transition-all duration-fast;
+  }
+  
+  .glass-input-error {
+    @apply glass-input border-red-500/50 focus:border-red-500 focus:ring-red-500/20;
+  }
+  
+  .glass-select {
+    @apply glass-input appearance-none bg-no-repeat bg-right pr-10;
+  }
+  
+  .glass-label {
+    @apply block text-sm font-medium text-text-secondary mb-2;
+  }
+  
+  .page-container {
+    @apply min-h-screen bg-gradient-to-b from-matte-black via-matte-black to-matte-black-light;
+  }
+  
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12;
+  }
+  
+  .card-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .animate-in {
+    animation: fadeIn 0.3s ease-out, slideUp 0.4s ease-out;
+  }
+  
+  .glass-gradient {
+    background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
+  }
+}
